@@ -45,7 +45,7 @@ public class MainApp {
 
             System.out.println("USER" + user.getId() + " = " + user.getFirstName()
                     + " " + user.getLastName() + " " + user.getEmail() + "    авто= " + user.getUserCar());
-            System.out.println();
+            System.out.println() ;
         }
 
         // Получение пользователя по авто
