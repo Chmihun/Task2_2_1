@@ -41,24 +41,36 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> findAllByUserCar(Car car) {
+//        TypedQuery<User> query = sessionFactory.getCurrentSession()
+//                .createQuery("SELECT u FROM User u WHERE u.userCar = :car", User.class);
+//        query.setParameter("car", car);
+//        return query.getResultList();
         TypedQuery<User> query = sessionFactory.getCurrentSession()
-                .createQuery("SELECT u FROM User u WHERE u.userCar = :car", User.class);
+                .createQuery("SELECT u FROM User u JOIN FETCH u.userCar WHERE u.userCar = :car", User.class);
         query.setParameter("car", car);
         return query.getResultList();
     }
 
     @Override
     public List<User> findUsersByCar(Car car) {
+//        return sessionFactory.getCurrentSession()
+//                .createQuery("from User where userCar = :car", User.class)
+//                .setParameter("car", car)
+//                .list();
         return sessionFactory.getCurrentSession()
-                .createQuery("from User where userCar = :car", User.class)
+                .createQuery("SELECT u FROM User u JOIN FETCH u.userCar WHERE u.userCar = :car", User.class)
                 .setParameter("car", car)
-                .list();
+                .getResultList();
     }
 
     @Override
     public User findUserByCar(Car car) {
+//        return sessionFactory.getCurrentSession()
+//                .createQuery("from User where userCar = :car", User.class)
+//                .setParameter("car", car)
+//                .uniqueResult();
         return sessionFactory.getCurrentSession()
-                .createQuery("from User where userCar = :car", User.class)
+                .createQuery("SELECT u FROM User u JOIN FETCH u.userCar WHERE u.userCar = :car", User.class)
                 .setParameter("car", car)
                 .uniqueResult();
     }
