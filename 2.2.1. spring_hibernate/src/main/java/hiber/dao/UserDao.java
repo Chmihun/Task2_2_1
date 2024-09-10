@@ -1,5 +1,5 @@
 package hiber.dao;
-
+//
 import hiber.model.Car;
 import hiber.model.User;
 
@@ -11,12 +11,6 @@ public interface UserDao {
     List<User> listUsers();
 
     void add(Car car);
-
-    List<Car> listCar();
-
-    List<User> findAllByUserCar(Car car);
-
-    List<User> findUsersByCar(Car car);
 
     User findUserByCar(Car car);
 

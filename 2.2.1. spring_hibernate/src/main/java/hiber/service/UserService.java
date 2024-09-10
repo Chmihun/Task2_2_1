@@ -10,9 +10,5 @@ public interface UserService {
 
     List<User> listUsers();
 
-    List<Car> listCar();
-
-    List<User> getUsersByCar(Car car);
-
     User getUserByCar(Car car);
 }
